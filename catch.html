@@ -5,8 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch Me</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+
+<style>
+
+    body {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 4fr 1fr 2fr;
+        background-color: #d9e4dd;
+    }
+    .inactiveBtn {
+        background-color: transparent;
+            opacity: 0.5;
+            margin: 10px;
+            padding: 50px;
+            border-radius: 28px;
+            color: transparent;
+            border: transparent;
+            font-size: 1em;
+    }
+
+    .activeBtn {
+        background-color: #9aa39d;
+            opacity: 0.5;
+            margin: 83px;
+            padding: 50px;
+            border-radius: 28px;
+            color: #433d3c;
+            border: transparent;
+            font-size: 2em;
+    }
+
+    
+</style>
 </head>
 <body>
-    
+    <button id="btn1" class="activeBtn">button 1</button>
+    <button id="btn2" class="inactiveBtn">button 2</button>
+    <button id="btn3" class="inactiveBtn">button 3</button>
+    <button id="btn4" class="inactiveBtn">button 4</button>
+    <button id="btn5" class="inactiveBtn">button 5</button>
+    <button id="btn6" class="inactiveBtn">button 6</button>
+    <button id="btn7" class="inactiveBtn">button 7</button>
+    <button id="btn8" class="inactiveBtn">button 8</button>
+    <button id="btn9" class="inactiveBtn">button 9</button>
+    <button id="btn10" class="inactiveBtn">button 10</button>
+
+
 </body>
+<script>
+    lodashRandNumber = () => {
+      return _.random(1, 10);
+    }
+
+    const numberGenerator = _.times(1, lodashRandNumber);
+
+    console.log(numberGenerator);
+
+    const btnNumber = (`'btn${numberGenerator}'`)
+
+    console.log(btnNumber)
+
+    const btnchanger = document.getElementById('btn1');
+    btnchanger.onclick = () => {
+        if (btnchanger.classList.contains('activeBtn')) {
+            btnchanger.classList.remove('activeBtn');
+            btnchanger.classList.add('inactiveBtn');
+        } else {
+            btnchanger.classList.remove('inactiveBtn');
+            btnchanger.classList.add('activeBtn');
+        }
+    }
+    
+</script>
 </html>

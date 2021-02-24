@@ -7,25 +7,40 @@
     <title>Document</title>
     <style>
         button {
-            
-            font-size: 6em;
-            background-color: grey;
+            background-color: #7c9473;
+            opacity: 0.5;
+            padding: 50px;
+            border-radius: 28px;
             color: whitesmoke;
-            border-radius: 5px;
+            border: transparent;
+            font-size: 5em;
         }
     </style>
 </head>
 <body>
-    <div id="button" class="buttonGame">
-        <button>Click</button>
+    <div class="content-wrapper">
+        <div id="button" class="buttonGame">
+            <button>Click here</button>
+        </div>
+
+        <h1 id="output">Hello</h1>
+        
     </div>
 </body>
 <script>
-    const button = document.getElementById('button');
-   button.onclick = () => {
-     console.log('I was clicked');
+//     const button = document.getElementById('button');
+//    button.onclick = () => {
+//      console.log('I was clicked');
      
+//    }
+
+   const btnOutput = document.getElementById('button');
+   btnOutput.onclick = () => {
+       total = btnOutput + 1;
+       console.log(total)
    }
+
+   
 
 </script>
 </html>
