@@ -19,28 +19,42 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <div id="button" class="buttonGame">
-            <button>Click here</button>
+        <div class="buttonGame">
+            <button id="button">Click here</button>
         </div>
 
-        <h1 id="output">Hello</h1>
+        <h1 id="output">0</h1>
         
     </div>
 </body>
 <script>
-//     const button = document.getElementById('button');
-//    button.onclick = () => {
-//      console.log('I was clicked');
-     
-//    }
 
-   const btnOutput = document.getElementById('button');
-   btnOutput.onclick = () => {
-       total = btnOutput + 1;
-       console.log(total)
-   }
+const button = document.getElementById('button');
+const btnOutput = document.getElementById('output');
+let counter = 0;
 
-   
+const timer = () => {
+    if (counter === 0) {
+        let seconds = 0
+        setInterval((seconds) => {
+            console.log(seconds++);
+        }, 1000);
+    }; 
+};
+
+button.onclick = () => {
+    timer();
+    counter++;
+    btnOutput.innerHTML = counter; 
+}  
+
+
+const endTimer = () => {
+    if (seconds >= 5) {
+        console.log('This worked');
+    }
+}
+
 
 </script>
 </html>

@@ -15,7 +15,7 @@
         grid-template-columns: 1fr 4fr 1fr 2fr;
         background-color: #d9e4dd;
     }
-    .inactiveBtn {
+    .inactive {
         background-color: transparent;
             opacity: 0.5;
             margin: 10px;
@@ -26,7 +26,7 @@
             font-size: 1em;
     }
 
-    .activeBtn {
+    .active {
         background-color: #9aa39d;
             opacity: 0.5;
             margin: 83px;
@@ -41,16 +41,16 @@
 </style>
 </head>
 <body>
-    <button id="btn1" class="activeBtn">button 1</button>
-    <button id="btn2" class="inactiveBtn">button 2</button>
-    <button id="btn3" class="inactiveBtn">button 3</button>
-    <button id="btn4" class="inactiveBtn">button 4</button>
-    <button id="btn5" class="inactiveBtn">button 5</button>
-    <button id="btn6" class="inactiveBtn">button 6</button>
-    <button id="btn7" class="inactiveBtn">button 7</button>
-    <button id="btn8" class="inactiveBtn">button 8</button>
-    <button id="btn9" class="inactiveBtn">button 9</button>
-    <button id="btn10" class="inactiveBtn">button 10</button>
+    <button id="btn1" class="inactive">button 1</button>
+    <button id="btn2" class="inactive">button 2</button>
+    <button id="btn3" class="inactive">button 3</button>
+    <button id="btn4" class="inactive">button 4</button>
+    <button id="btn5" class="inactive">button 5</button>
+    <button id="btn6" class="inactive">button 6</button>
+    <button id="btn7" class="inactive">button 7</button>
+    <button id="btn8" class="inactive">button 8</button>
+    <button id="btn9" class="inactive">button 9</button>
+    <button id="btn10" class="inactive">button 10</button>
 
 
 </body>
@@ -59,23 +59,22 @@
       return _.random(1, 10);
     }
 
-    const numberGenerator = _.times(1, lodashRandNumber);
+    // const numberGenerator = _.times(1, lodashRandNumber);
+    // console.log(numberGenerator);
 
-    console.log(numberGenerator);
+    // const btnNumber = (`'btn${lodashRandNumber()}'`)
+    // console.log(btnNumber)
 
-    const btnNumber = (`'btn${numberGenerator}'`)
+    const activeButton = document.querySelector(`#btn${lodashRandNumber()}`);
+    console.log(activeButton);
+    activeButton.className = "active"
 
-    console.log(btnNumber)
-
-    const btnchanger = document.getElementById('btn1');
-    btnchanger.onclick = () => {
-        if (btnchanger.classList.contains('activeBtn')) {
-            btnchanger.classList.remove('activeBtn');
-            btnchanger.classList.add('inactiveBtn');
-        } else {
-            btnchanger.classList.remove('inactiveBtn');
-            btnchanger.classList.add('activeBtn');
-        }
+    activeButton.onclick = () => {
+        if (activeButton.classList.contains('active')) {
+            activeButton.classList.remove('active');
+            activeButton.classList.add('inactive');
+        } 
+    
     }
     
 </script>
