@@ -73,9 +73,23 @@
         if (activeButton.classList.contains('active')) {
             activeButton.classList.remove('active');
             activeButton.classList.add('inactive');
+            newLodashRandNumber = () => {
+      return _.random(1, 10);
+    }
+        const newActiveButton = document.querySelector(`#btn${newLodashRandNumber()}`);
+        console.log(newActiveButton);
+        newActiveButton.className = "active"
         } 
     
     }
     
+    // function newBtnGenerator() {
+    //     newLodashRandNumber = () => {
+    //   return _.random(1, 10);
+    // }
+    //     const newActiveButton = document.querySelector(`#btn${newLodashRandNumber()}`);
+    //     console.log(newActiveButton);
+    // }
+
 </script>
 </html>
