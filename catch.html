@@ -10,10 +10,12 @@
 <style>
 
     body {
+        background-color: #d9e4dd;
+    }
+    #buttons {
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr 4fr 1fr 2fr;
-        background-color: #d9e4dd;
     }
     .inactive {
         background-color: transparent;
@@ -41,6 +43,7 @@
 </style>
 </head>
 <body>
+<div id="buttons">
     <button id="btn1" class="inactive">button 1</button>
     <button id="btn2" class="inactive">button 2</button>
     <button id="btn3" class="inactive">button 3</button>
@@ -51,7 +54,7 @@
     <button id="btn8" class="inactive">button 8</button>
     <button id="btn9" class="inactive">button 9</button>
     <button id="btn10" class="inactive">button 10</button>
-
+</div>
 
 </body>
 <script>
@@ -62,41 +65,20 @@
     let activeButton = document.querySelector(`#btn${lodashRandNumber()}`);
         console.log(activeButton);
         activeButton.className = "active"
-
-    let visibleButtons = document.querySelectorAll('.active');
     
-
-    visibleButtons.forEach(button => button.addEventListener('click', (event) => {
+    document.querySelector('#buttons').addEventListener('click', function(e) {
+        const button = e.target;
         if (button.classList.contains('active')) {
             button.classList.remove('active');
             button.classList.add('inactive');
-            let newLodashRandNumber = () => {
-            return _.random(1, 10);
-            }
-            let newActiveButton = document.querySelector(`#btn${newLodashRandNumber()}`);
+            let newActiveButton = document.querySelector(`#btn${lodashRandNumber()}`);
             console.log(newActiveButton);
-            newActiveButton.className = "active"
-            } 
-    }))
-
-
-    // const activeButton = document.querySelector(`#btn${lodashRandNumber()}`);
-    // console.log(activeButton);
-    // activeButton.className = "active"
-
-    // activeButton.onclick = () => {
-    //     if (activeButton.classList.contains('active')) {
-    //         activeButton.classList.remove('active');
-    //         activeButton.classList.add('inactive');
-    //         newLodashRandNumber = () => {
-    //   return _.random(1, 10);
-    // }
-    //     const newActiveButton = document.querySelector(`#btn${newLodashRandNumber()}`);
-    //     console.log(newActiveButton);
-    //     newActiveButton.className = "active"
-    //     } 
+            newActiveButton.className = "active" 
+        }
+            
+    })
+  
     
-    // }
 
 </script>
 </html>

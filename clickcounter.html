@@ -24,6 +24,7 @@
         </div>
 
         <h1 id="output">0</h1>
+        <h1 id="timer">Timer</h1>
         
     </div>
 </body>
@@ -31,13 +32,15 @@
 
 const button = document.getElementById('button');
 const btnOutput = document.getElementById('output');
+const onScreenTimer = document.getElementById('timer');
 let counter = 0;
 
 const timer = () => {
     if (counter === 0) {
         let seconds = 0
         setInterval((seconds) => {
-            console.log(seconds++);
+            console.log(counter++);
+            onScreenTimer.innerHTML = counter;
         }, 1000);
     }; 
 };
@@ -50,11 +53,12 @@ button.onclick = () => {
 
 
 const endTimer = () => {
-    if (seconds >= 5) {
+    if (onScreenTimer >= 5) {
         console.log('This worked');
     }
 }
 
+endTimer()
 
 </script>
 </html>
